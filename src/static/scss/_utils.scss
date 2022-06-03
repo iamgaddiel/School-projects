@@ -1,0 +1,202 @@
+// loops
+$spacing: (1, 2, 3, 4, 5);
+
+@each $space in $spacing {
+
+    // margins
+    .m-#{$space} {
+        margin: #{$space}rem
+    }
+
+    .my-#{$space} {
+        margin: #{$space}rem 0;
+    }
+
+    .mx-#{$space} {
+        margin: #{$space}rem 0;
+    }
+
+    .mt-#{$space} {
+        margin-top: #{$space}rem;
+    }
+
+    .mr-#{$space} {
+        margin-right: #{$space}rem;
+    }
+
+    .mb-#{$space} {
+        margin-bottom: #{$space}rem;
+    }
+
+    .ml-#{$space} {
+        margin-left: #{$space}rem;
+    }
+
+    // padding
+    .p-#{$space} {
+        padding: #{$space}rem
+    }
+
+    .py-#{$space} {
+        padding: #{$space}rem 0;
+    }
+
+    .px-#{$space} {
+        padding: #{$space}rem 0;
+    }
+
+    .pt-#{$space} {
+        padding-top: #{$space}rem;
+    }
+
+    .pr-#{$space} {
+        padding-right: #{$space}rem;
+    }
+
+    .pb-#{$space} {
+        padding-bottom: #{$space}rem;
+    }
+
+    .pl-#{$space} {
+        padding-left: #{$space}rem;
+    }
+}
+.mx-auto{
+    margin: 0 auto;
+}
+
+// font-sizes
+.title {
+    font-size: 2.5em;
+}
+
+.lead {
+    font-size: 1.8;
+    color: $light-grey-color
+}
+
+
+
+// badge
+%badge {
+    padding: 2px 5px;
+    width: fit-content;
+    border-radius: 10px;
+}
+
+.warning-badge {
+    @extend %badge;
+    background-color: orange;
+    color: #333;
+}
+
+.danger-badge {
+    @extend %badge;
+    background-color: red;
+    color: $light-color !important;
+}
+
+.success-badge {
+    @extend %badge;
+    background-color: lighten($color: #00ff00, $amount: 10);
+    color: $dark-2-color !important;
+}
+.teal-badge {
+    @extend %badge;
+    background-color: $teal-color;
+    color: $dark-2-color !important;
+}
+
+
+
+// buttons
+%btn {
+    border-radius: 20px;
+    padding: 10px;
+    border: none;
+    text-align: center;
+    display: block;
+    text-decoration: none;
+}
+
+.btn-primary {
+    @extend %btn;
+    background-color: $teal-color;
+    color: $dark-2-color;
+    transition: 500ms;
+    &:hover{
+        background-color: darken($color: $teal-color, $amount: 5);
+    }
+}
+
+.btn-full {
+    @extend %btn;
+    width: 100% !important;
+}
+
+
+// Text
+.text-center{
+    text-align: center !important;
+}
+
+// view port sizes 
+$sizes : (1, 2, 3, 5, 6, 7, 8, 9, 10);
+@each $size in $sizes{
+    // width:
+    .vw-#{$size}{
+        width: #{$size*10}vw;
+    }
+    // height
+    .vh-#{$size}{
+        height: #{$size*10}vh;
+    }
+}
+
+// flex 
+.d-flex{
+    display: flex;
+    &.justify-content-center{
+        justify-content: center;
+    }
+    &.justify-content-between{
+        justify-content: space-between;
+    }
+    &.justify-content-around{
+        justify-content: space-around;
+    }
+    &.justify-content-evenly{
+        justify-content: space-evenly;
+    }
+    &.align-items-center{
+        align-items: center;
+    }
+    &.align-items-start{
+        align-items: start;
+    }
+    &.align-items-end{
+        align-items: end;
+    }
+    &.align-items-baseline{
+        align-items: baseline;
+    }
+}
+
+// relative and absolute
+.relative{
+    position: relative;
+    .absolute{
+        position: absolute;
+    }
+}
+
+// width and height
+$spacingSize: (1, 2, 3, 4, 5);
+@each $size in $spacingSize{
+    .w-#{$size}{
+        width: #{$size*20}px;
+    }
+    .h-#{$size}{
+        height: #{$size*20}px;
+    }
+}

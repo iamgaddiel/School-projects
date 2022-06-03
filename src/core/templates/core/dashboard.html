@@ -1,0 +1,38 @@
+{% extends 'core/base.html' %} {% block title %}
+<title>FRSC - Dashboard</title>
+{% endblock title %} {% block content %} 
+<div class="dashboard-wrapper">
+  {% include 'core/includes/dashboard_side_nav.html' %}
+  <main>
+    {% block dashboard_content %}
+    <section class="main-wrapper">
+      <section class="hero-search">
+        <!-- hero search form START -->
+        <form action="{% url 'search' %}" method="post" class="hero-search-form">
+          {% csrf_token %}
+          <div class="search-input seach-params">
+            <input
+              type="text"
+              name="search_params"
+              placeholder="Search text"
+              required
+            />
+          </div>
+          <div>
+            <select name="search_category" id="">
+              <option value="driver_license">Driver License</option>
+              <option value="plate_number">Plate number</option>
+            </select>
+          </div>
+          <button class="hero-search-button">
+            <i class="fa fa-search"></i>
+            search
+          </button>
+        </form>
+      </section>
+    </section>
+    {% endblock dashboard_content%}
+  </main>
+
+</div>
+{% endblock content %}

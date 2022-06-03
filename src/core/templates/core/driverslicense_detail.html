@@ -1,0 +1,99 @@
+{% extends 'core/dashboard.html' %} {% load static %} 
+{% block dashboard_content%}
+<div class="detail-wrapper mt-5">
+  <div class="detail-content">
+    <div class="holder-image-wrapper">
+      <img src="{% static 'images/image.jpg' %}" alt="" />
+    </div>
+    <div class="row">
+      <div class="col">
+        <span class="lead">First Name</span>
+        <p>{{ object.user.first_name }}</p>
+      </div>
+      <div class="col">
+        <span class="lead">Last Name</span>
+        <p>{{ object.user.last_name }}</p>
+      </div>
+      <div class="col">
+        <span class="lead">Address</span>
+        {% if object.address == "" %}
+        <p>N/A</p>
+        {% else %}
+        <p>{{ object.address }}</p>
+        {% endif %}
+      </div>
+      <div class="col">
+        <span class="lead">L/N</span>
+        <p>{{ object.license_number }}</p>
+      </div>
+      <div class="col">
+        <span class="lead">DOB</span>
+        {% if object.dob == "1900-10-1" %}
+        <p>N/A</p>
+        {% else %}
+        <p>{{ object.dob }}</p>
+        {% endif %}
+      </div>
+      <div class="col">
+        <span class="lead">SEX</span>
+        {% if object.user.gender == "" %}
+        <p>N/A</p>
+        {% else %}
+        <p>{{ object.gender }}</p>
+        {% endif %}
+      </div>
+      <div class="col">
+        <span class="lead">BG</span>
+        {% if object.user.blood_group == '' %}
+        <p>N/A</p>
+        {% else %}
+        <p>{{ object.user.blood_group }}</p>
+        {% endif %}
+      </div>
+      <div class="col">
+        <span class="lead">HT</span>
+        {% if object.user.height == None %}
+        <p>N/A</p>
+        {% else %}
+        <p>{{ object.user.height }}</p>
+        {% endif %}
+      </div>
+      <div class="col">
+        <span class="lead">N of K</span>
+        {% if object.user.next_of_kin == '' %}
+        <p>N/A</p>
+        {% else %}
+        <p>{{ object.user.next_of_kin }}</p>
+        {% endif %}
+      </div>
+      <div class="col">
+        <span class="lead">CLASS</span>
+        {% if object.assigned_class == None %}
+        <p>N/A</p>
+        {% else %}
+        <p>{{ object.assigned_class }}</p>
+        {% endif %}
+      </div>
+      <div class="col">
+        <span class="lead">ISS</span>
+        {% if object.iss == None %}
+        <p>N/A</p>
+        {% else %}
+        <p>{{ object.iss }}</p>
+        {% endif %}
+      </div>
+      <div class="col">
+        <span class="lead">EXP</span>
+        {% if object.exp == None %}
+        <p>N/A</p>
+        {% else %}
+        <p>{{ object.exp }}</p>
+        {% endif %}
+      </div>
+    </div>
+    <div class="detail-edit mt-2">
+      <a href="" class="btn btn-primary btn-full">Edit</a>
+    </div>
+  </div>
+</div>
+{% endblock dashboard_content %}

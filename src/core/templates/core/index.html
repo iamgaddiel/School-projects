@@ -1,0 +1,38 @@
+{% extends 'core/base.html' %} {% block title %}
+<title>FRSC - Home</title>
+{% endblock title %} {% block content %} {% include 'core/includes/top_nav.html'%}
+
+<!-- hero section -->
+<section class="hero">
+  <section class="hero-content">
+    <!-- hero text -->
+    <div class="hero-text">
+      <h2>Traffic Control System</h2>
+    </div>
+
+    <!-- hero search  -->
+    <section class="hero-search">
+      <!-- hero search form START -->
+      <form action="{% url 'search' %}" method="post" class="hero-search-form">
+        {% csrf_token %}
+        <input
+          type="text"
+          name="search_params"
+          placeholder="Search text"
+          required
+        />
+        <select name="search_category" id="">
+          <option value="driver_license">Driver License</option>
+          <option value="plate_number">Plate number</option>
+        </select>
+        <button class="hero-search-button">
+          <i class="fa fa-search"></i>
+          search
+        </button>
+      </form>
+      <!-- hero search form END -->
+    </section>
+  </section>
+</section>
+
+{% endblock content %}

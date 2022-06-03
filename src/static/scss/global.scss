@@ -1,0 +1,233 @@
+@import 'config';
+@import 'utils';
+@import 'main_nav';
+@import 'auth_forms';
+@import 'dashboard';
+@import 'dashboard_nav';
+
+
+* {
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth;
+    font-family: 'AvenirNextLTPro-Medium';
+}
+
+body{
+    // background-color: $dark-2-color;
+    background: #ffffff;
+}
+
+a {
+    text-decoration: none;
+}
+
+// transfer
+.wrapper {
+    // background-color: $dark-color;
+    // background: $backgroundColor;
+    color: $dark-color;
+    height: 100vh;
+    padding-top: 5em;
+    // overflow-y: hidden;
+}
+
+form {
+    width: 60vw;
+    overflow-x: hidden;
+    // border: 1px solid $teal-color;
+    padding: 10px;
+    border-radius: 20px;
+    margin-top: 10px;
+    box-shadow: 5px 10px 10px solid $ternary-color, -5px -10px 10px $ternary-color;
+    .input-wrapper {
+        margin:30px auto;
+        position: relative;
+        width: 0%;
+        padding: 0 10px;
+        width: fit-content;
+        label{
+            position: absolute;
+            top: -15px;
+            left: 20px;
+            background-color: $light-color;
+            color: $dark-color;
+            font-weight: 900;
+            padding: 5px;
+            font-size: small;
+        }
+        input[type='text'],
+        input[type='password'],
+        input[type='email'],
+        input[type='file'],
+        select{
+            padding: 20px 5px 10px 5px;
+            font-size: medium;
+            border-radius: 7px;
+            border: 1px solid $dark-color;
+            height: 20px;
+            width:50vw;
+            background-color: transparent;
+            &:focus {
+                outline: none;
+            }
+        }
+        #auth-btn{
+            width: 40;
+            margin-left: auto;
+            margin-right: auto;
+            background-color: $dark-color;
+            color: $light-color;
+            border: none;
+            padding: 15px;
+            border-radius: 10px;
+            font-weight: bold;
+            width: 50vw;
+        }
+    }
+}
+
+
+// hero section
+.hero {
+    background-color:  transparent;
+    color: $light-grey-color;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .hero-text {
+        text-align: center;
+        font-size: 1.3em;
+        width: 70%;
+        margin: auto;
+        font-weight: 900 !important;
+    }
+}
+
+.hero-search-form {
+    width: 70%;
+    margin: auto;
+    margin-top: 50px;
+    padding: 30px 10px;
+    height: fit-content;
+    border-radius: 10px;
+    // border: 1px solid $light-grey-color;
+    box-shadow: 5px 5px 20px #cccccc;
+    overflow: hidden;
+    input {
+        width: 100%;
+        font-weight: 500;
+        font-size: large;
+        background: #eeee !important;
+
+        &::placeholder {
+            color: $dark-2-color;
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    button.hero-search-button {
+        font-size: small;
+        font-weight: 600;
+        background-color: $dark-color;
+        padding: 10px;
+        color: $light-color;
+        text-align: center;
+        border-radius: 10px;
+        text-transform: uppercase;
+        font-size: bolder;
+        height:50%;
+    }
+
+    select {
+        font-size: small;
+    }
+    
+    select, input{
+        padding: 20px 10px;
+    }
+    input,
+    button,
+    select {
+        width: 100% !important;
+        color: $dark-2-color;
+        background-color: transparent;
+        border: none;
+        margin: 10px 0;
+    }
+}
+
+
+// nav logo
+.nav-logo {
+    width: 30px;
+    height: 30px;
+    overflow: hidden;
+    border-radius: 50%;
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+
+
+// ---------------------------------- [ Search Cards] -----------------------
+.search-card{
+    background: #ffffff;
+    padding: 20px;
+    width: 80vw;
+    margin: 0 auto;
+    border-radius: 20px;
+    color: #333;
+    position: relative;
+    margin-top: 10rem;
+    height: 30vh;
+    .search-profile-image{
+        background: #fff;
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+        position: absolute;
+        border-radius: 50% !important;
+        border: 1px solid $ternary-color;
+        padding: 10px;
+        top: -40px;
+        left: 10%;
+        overflow: hidden !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img{
+            width: 100%;
+            height: auto;
+        }
+    }
+    .search-detail{
+        display: flex;
+        align-items: center;
+        height: 100%;
+        border: 1px solid $ternary-color;
+        padding: 10px;
+        border-radius: 10px;
+        .search-detail-content{
+            width: 100% !important;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            .detail{
+                width: 20%;
+                margin: 10px 0;
+            }
+        }
+    }
+}
+
+
+// mediaqueries
+@import 'mobile';

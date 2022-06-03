@@ -1,0 +1,35 @@
+{% extends 'core/base.html' %} {% block title %}
+<title>FRSC - Login</title>
+{% endblock title %} {% block content %} {% include 'core/includes/top_nav.html' %}
+<section class="wrapper login-wrapper">
+  <section class="login-content">
+    <h1 id="form-title">Login</h1>
+    <form method="post">
+      {% csrf_token %}
+      <div class="input-wrapper">
+        <label for="{{ form.id_for_usernme }}">
+          <p>{{ form.username.label }}</p>
+        </label>
+        {{ form.username }}
+        <p><small class="form-error-text">{{ form.username.errors }}</small></p>
+      </div>
+      <div class="input-wrapper">
+        <label for="{{ form.id_for_usernme }}">
+          <p>{{ form.password.label }}</p>
+        </label>
+        {{ form.password }}
+        <p><small class="form-error-text">{{ form.password.errors }}</small></p>
+      </div>
+      <div class="input-wrapper">
+        <button type="submit" id="auth-btn">Login</button>
+      </div>
+    </form>`
+    <small class="or-text">OR</small> 
+    <small class="form-opts">
+        <!-- todo: implement forgot password -->
+        <a href="">forgot password?</a>
+        <a href="{% url 'signup' %}">don't have an account?</a>
+    </small>
+  </section>
+</section>
+{% endblock content %}

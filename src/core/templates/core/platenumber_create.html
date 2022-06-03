@@ -1,0 +1,27 @@
+{% extends 'core/dashboard.html' %} 
+
+
+{% block dashboard_content %} 
+<section class="wrapper login-wrapper">
+  <section class="login-content">
+    <h1 id="form-title">Add PlateNumber </h1>
+    <form method="post" enctype="multipart/form-data">
+      {% csrf_token %}
+      <div class="flex-wrapper">
+        {% for field in form %}
+        <div class="input-wrapper flex-input">
+          <label for="{{ form.id_for_usernme }}">
+            <p>{{ field.label }}</p>
+          </label>
+          {{ field }}
+          <p><small class="form-error-text" style="color: red; list-style-type: none;">{{ field.errors }}</small></p>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="input-wrapper">
+        <button type="submit" id="auth-btn">Add</button>
+      </div>
+    </form>`
+  </section>
+</section>
+{% endblock dashboard_content %}

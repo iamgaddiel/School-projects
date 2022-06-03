@@ -1,0 +1,51 @@
+// ---------------  [ Login ] ------------------------------
+.login-wrapper {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    .login-content {
+        // background-color: green;
+        background-color: $light-color;
+        // height: 75vh;
+        // overflow-y: auto;
+        // margin-top: 75rem;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        color: $dark-color;
+        padding: 15px 10px;
+
+        #form-title{
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 900;
+            margin-top: 30px;
+        }
+
+        .or-text{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin: auto;
+            padding: 10px;
+            font-weight: bold;
+            color: $light-color;
+            background-color: $dark-color;
+            margin-top: -20px;
+        }
+        .form-opts{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 20px auto;
+            width: 40vw;
+        }
+    }
+}

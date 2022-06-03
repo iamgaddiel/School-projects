@@ -1,0 +1,69 @@
+
+// top nav bar
+nav.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    position: fixed;
+    width: 100%;
+    #logo {
+        width: 30px;
+        height: 30px;
+        overflow: hidden;
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    .nav-btn-section {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+
+        button#nav-btn {
+            border: 1px solid $dark-color;
+            background-color: transparent;
+            padding: 10px;
+            border-radius: 20px;
+            color: $dark-color;
+
+            &:hover {
+                cursor: pointer !important;
+            }
+        }
+
+        ul {
+            list-style-type: none;
+            display: flex !important;
+            transition: 1.4s;
+
+            li {
+                margin: 0 20px;
+
+                a {
+                    color: $dark-color;
+                }
+            }
+        }
+    }
+}
+
+
+// logout screen
+.logout-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    text-align: center;
+    h1{
+        color: $ternary-color;
+        font-size: 3.4em;
+        font-weight: lighter !important;
+    }
+    a{
+        font-size: 20px;
+    }
+}

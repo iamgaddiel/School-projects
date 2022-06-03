@@ -1,0 +1,72 @@
+@media (max-width: 375px) {
+
+    .hero-search-form {
+        input {
+            text-align: center;
+        }
+
+        select {
+            text-align: center;
+            margin: auto;
+            width: 70%;
+            margin: 10px 0;
+        }
+
+        input,
+        button,
+        select {
+            width: 100% !important;
+        }
+    }
+
+    // Search 
+    .search-card{
+        height: fit-content;
+        .search-detail{
+            height: initial;
+            .search-detail-content{
+                .detail{
+                    width: 100% !important;
+                }
+            }
+        }
+    }
+
+    // dashboard cards
+    main {
+        .cards {
+            flex-wrap: wrap;
+            .card-content {
+                width: 100% !important;
+                height: 10vh;
+                margin: 10px 0;
+                // .card-icons {
+                //     position: absolute;
+                //     bottom: 10px;
+                //     border-radius: 30px;
+                //     width: 60px;
+                //     text-align: start !important;
+                //     background-color: dark-color;
+                //     padding-left: 6px;
+
+                //     &:hover a {
+                //         color: red;
+                //         text-align: center;
+                //         transition: 500ms;
+                //     }
+                // }
+            }
+        }
+    }
+}
+@media (max-width: 700px) {
+    .search-card{
+        .search-detail{
+            .search-detail-content{
+                .detail{
+                    width: 100% !important;
+                }
+            }
+        }
+    }
+}

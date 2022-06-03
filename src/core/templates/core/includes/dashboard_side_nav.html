@@ -1,0 +1,11 @@
+{% extends 'core/base.html' %}
+{% block content %}
+    <div class="side-nav">
+        <div>
+            <a href="{% url 'index'  %}">Home</a>
+            <a href="{% url 'dashboard'  %}">Dashboard</a>
+            <a href="{% url 'license'  %}">Drivers License</a>
+            <a href="{% url 'list_platenumber' %}">Plate Numbers</a>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'core/dashboard.html' %} {% block dashboard_content %}
+<div class="heading">
+  <h2 class="title">Your licenses</h2>
+  <a class="teal-badge" href="{% url 'add_license' %}">Add licenses</a>
+</div>
+
+<table class="list-table mt-3">
+  <thead>
+    <tr>
+      <th>S/N</th>
+      <th>Item</th>
+      <th>Status</th>
+      <!-- <th>action</th> -->
+    </tr>
+  </thead>
+  <tbody>
+    {% for object in object_list %}
+      {% if object.user.id == user.id %}
+    <tr>
+      <td>{{ forloop.counter }}</td>
+      <td>{{ object.license_number }}</td>
+      <td>
+        {% if object.status == 'approved' %}
+        <span class="success-badge">approved</span>
+        {% elif object.status == 'expired'  %}
+        <span class="danger-badge">expired</span>
+        {% elif object.status == 'declined' %}
+        <span class="danger-badge">declined</span>
+        {% elif object.status == 'pending' %}
+        <span class="warning-badge">pending</span>
+        {% endif %}
+      </td>
+      {% if object.is_last_item %}
+      <td>
+        <a href="{% url 'driver_license_detail' object.id %}">view</a>
+      </td>
+      {% endif %}
+    </tr>
+    {% endif %}
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock dashboard_content %}

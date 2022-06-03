@@ -1,0 +1,26 @@
+.dashboard-nav{
+    background-color: $light-color;
+    // border-bottom: 1px solid $teal-color;
+    box-shadow: 0 5px 3px #eeeeee;
+    color: $teal-color;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    div:nth-child(1){
+        display: flex;
+        align-items: center;
+    }
+    div:nth-child(2){
+        margin-left: 10px;
+    }
+    a{
+        margin: 0 10px;
+        &:hover{
+            font-weight: bolder;
+        }
+    }
+}

@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- styles  -->
+    <link rel="stylesheet" href="{% static 'css/global.css' %}" />
+
+    <!-- javascript -->
+    <script src="{% static 'js/main.js' %}" defer></script>
+
+    <!-- jquery -->
+    <script src="{% static 'vendors/jquery-3.0.2.js' %}" defer></script>
+
+    <!-- splide -->
+    <link rel="stylesheet" href="{% static 'vendors/splide/splide.min.css' %}" />
+
+    <!-- particle js -->
+    <script src="{% static 'vendors/particles.min.js' %}" defer></script>
+
+    <!-- ionicons -->
+    <!-- <script src="{% static 'vendors/ion-icons/ionicons-5.5.2.esm.js' %}" defer></script> -->
+    <script src="{% static 'vendors/ion-icons/ionicons-5.5.2.js' %}" defer></script>
+
+    <!-- inits -->
+    <!-- <script>
+        particlesJS.load('particles-js', 'particles.json', () => console.log('loaded...'))
+    </script> -->
+
+    {% block jsblock %}{% endblock jsblock %} 
+    
+    {% block title %}
+    <title>FRSC</title>
+    {% endblock title %}
+  </head>
+  <body>
+    {% block content %}{% endblock content %}
+
+    <!-- splide -->
+    <script src="{% static 'vendors/splide/splide.min.js' %}"></script>
+    <script>
+      new Splide(".splide").mount();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+{% extends 'core/base.html' %} 
+{% block title %}
+<title>FRSC - Signup</title>
+{% endblock title %} {% block content %} {% include 'core/includes/top_nav.html' %}
+<section class="wrapper login-wrapper">
+  <section class="login-content">
+    <h1 id="form-title">Signup</h1>
+    <form action="" method="post">
+      {% csrf_token %}
+      <div class="flex-wrapper">
+        {% for field in form %}
+        <div class="input-wrapper flex-input">
+          <label for="{{ form.id_for_usernme }}">
+            <p>{{ field.label }}</p>
+          </label>
+          {{ field }}
+          <p><small class="form-error-text" style="color: red; list-style-type: none;">{{ field.errors }}</small></p>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="input-wrapper">
+        <button type="submit" id="auth-btn">Sign Up</button>
+      </div>
+    </form>`
+    <small class="form-opts" style="text-align: center;">
+        <a href="{% url 'login' %}">already have an account?</a>
+    </small>
+  </section>
+</section>
+{% endblock content %}
