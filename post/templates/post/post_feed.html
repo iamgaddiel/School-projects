@@ -1,0 +1,36 @@
+{% extends 'core/base2.html' %} {% load static %} {% block dashboard_content %}
+
+<!-- POst header -->
+<section class="row justify-content-between align-items-center">
+    <div class="col-sm-12 col-md-5">
+        <div class="input-group mb-3">
+            <input type="submit" value="search" class="border-0 p-2" />
+          <!-- <div class="input-group-text">
+          </div> -->
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Search Post...."
+          />
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-5 justify-content-end">
+        <a href="{% url 'post:create_post' %}" class="btn btn-primary" type="submit">Create Post</a>
+    </div>
+</section>
+
+<!-- [Posts ] -->
+<div class="row justify-content-center mt-5">
+  {% for post in posts %}
+  <div class="card mb-3">
+    <img src="{{ post.image.url }}" class="card-img-top" alt="..." />
+    <div class="card-body">
+      <p class="card-text">{{ post.post_text }}</p>
+      <p class="card-text">
+        <small class="text-muted">{{ post.created_at }}</small>
+      </p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'core/base2.html' %} {% block dashboard_content %}
+<section>
+  <form
+    action="{% url 'post:create_post' %}"
+    method="post"
+    enctype="multipart/form-data"
+  >
+  {% csrf_token %}
+    <div class="container">
+      <div class="form-group my-2">
+        <textarea name="post_text" id="" cols="30" rows="10" class="form-control" placeholder="Post..." required></textarea>
+      </div>
+      <!-- <div class="form-group my-2">
+        <label for="video" class="text-muted">Video</label>
+        <input type="file" name="video" id="" accept=".mp4, .avi, .mkv" class="form-control">
+      </div> -->
+      <div class="form-group my-2">
+        <label for="image" class="text-muted">Images</label>
+        <input type="file" name="image" id="" accept=".jpg, .png, .jpeg" class="form-control">
+      </div>
+      <button type="submit" class="btn btn-primary btn-block mt-4">Create Post</button>
+    </div>
+  </form>
+</section>
+{% endblock %}
