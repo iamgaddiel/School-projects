@@ -1,5 +1,5 @@
 {% extends 'core/base2.html' %} {% load static %} {% block dashboard_content %}
-
+<h2>Your Posts</h2>
 <!-- POst header -->
 <section class="row justify-content-between align-items-center">
   <div class="col-sm-12 col-md-5">
@@ -24,23 +24,27 @@
     <img src="{{ post.image.url }}" class="card-img-top" alt="..." />
     <div class="card-body">
       <p class="card-text">{{ post.post_text }}</p>
+
       <div class="d-flex justify-content-between align-items-center">
         <p class="card-text">
           <small class="text-muted">{{ post.created_at }}</small>
         </p>
-        
-        {% if post.user == user.id %}
         <div>
-          <a href="{% url 'post:delete_post' post.id %}">
-            delete
-            <i class="fa fa-bin text-danger"></i>
-          </a>
-          <a href=""> edit </a>
+            <a href="{% url 'post:delete_post' post.id %}">
+                delete
+              <i class="fa fa-bin text-danger"></i>
+            </a>
+            <a href="">
+                edit
+            </a>
         </div>
-        {% endif %}
+        </a>
       </div>
+      
     </div>
   </div>
+  {% empty %}
+  <h3 class="text-muted text-center mt-4">You don't seem to have any posts</h3>
   {% endfor %}
 </div>
 {% endblock %}

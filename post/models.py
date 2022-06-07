@@ -5,6 +5,9 @@ from django.utils import timesince, timezone
 
 
 class Post(models.Model):
+    class Meta:
+        ordering = ['-created_at']
+        
     id = models.UUIDField(primary_key=True, unique=True, default=uuid4, editable=False)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     post_text = models.TextField()
@@ -14,6 +17,7 @@ class Post(models.Model):
 
     def __str__(self) -> str:
         return super().__str__()
+
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)

@@ -23,7 +23,7 @@
     </li>
     <!-- [ Groups ] -->
     <li class="">
-      <a class="has-arrow" href="" aria-expanded="false">
+      <a class="has-arrow" href="{% url 'post:personal_post' %}" aria-expanded="false">
         <img src="{% static 'img/menu-icon/2.svg' %}" alt="" />
         <span>Your Posts</span>
       </a>
@@ -36,39 +36,10 @@
       </a>
     </li>
     <li class="">
-      <a class="has-arrow" href="" aria-expanded="false">
+      <a class="has-arrow" href="{% url 'chat:users' %}" aria-expanded="false">
         <img src="{% static 'img/menu-icon/3.svg' %}" alt="" />
-        <span>Chats</span>
+        <span>Messenger</span>
       </a>
-    </li>
-    <li class="mm-active">
-      <a class="has-arrow" href="" aria-expanded="false">
-        <img src="{% static 'img/menu-icon/4.svg' %}" alt="" />
-        <span>UI Component</span>
-      </a>
-    </li>
-    <li class="">
-      <a class="has-arrow" href="" aria-expanded="false">
-        <img src="{% static 'img/menu-icon/5.svg' %}" alt="" />
-        <span>Widgets</span>
-      </a>
-    </li>
-    <li class="">
-      <a class="has-arrow" href="" aria-expanded="false">
-        <img src="{% static 'img/menu-icon/6.svg' %}" alt="" />
-        <span>Forms</span>
-      </a>
-    </li>
-    <li class="">
-      <a class="has-arrow" href="" aria-expanded="false">
-        <img src="img/menu-icon/7.svg" alt="" />
-        <span>Charts</span>
-      </a>
-      <ul>
-        <li><a href="chartjs.html">ChartJS</a></li>
-        <li><a href="apex_chart.html">Apex Charts</a></li>
-        <li><a href="chart_sparkline.html">chart sparkline</a></li>
-      </ul>
     </li>
   </ul>
 </nav>

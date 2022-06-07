@@ -6986,6 +6986,10 @@ canvas#highlights {
 }
 
 /* line 103, G:/admin_project/2 admin/finance/scss/_faq.scss */
+.messages_box_area .messages_list{
+  height: 100%;
+  overflow-y: scroll;
+}
 .messages_box_area .messages_list .serach_field_2 {
   width: 100%;
 }
@@ -6997,7 +7001,7 @@ canvas#highlights {
 }
 
 /* line 110, G:/admin_project/2 admin/finance/scss/_faq.scss */
-.messages_box_area .messages_list ul li a {
+.messages_box_area .messages_list ul li span {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -7010,24 +7014,24 @@ canvas#highlights {
 }
 
 /* line 117, G:/admin_project/2 admin/finance/scss/_faq.scss */
-.messages_box_area .messages_list ul li a .message_pre_left {
+.messages_box_area .messages_list ul li span .message_pre_left {
   display: flex;
   align-items: center;
 }
 
 /* line 123, G:/admin_project/2 admin/finance/scss/_faq.scss */
-.messages_box_area .messages_list ul li a .message_pre_left .message_preview_thumb img {
+.messages_box_area .messages_list ul li span .message_pre_left .message_preview_thumb img {
   width: 50px;
   height: 50px;
 }
 
 /* line 128, G:/admin_project/2 admin/finance/scss/_faq.scss */
-.messages_box_area .messages_list ul li a .message_pre_left .messges_info {
+.messages_box_area .messages_list ul li span .message_pre_left .messges_info {
   padding-left: 20px;
 }
 
 /* line 131, G:/admin_project/2 admin/finance/scss/_faq.scss */
-.messages_box_area .messages_list ul li a .message_pre_left h4 {
+.messages_box_area .messages_list ul li span .message_pre_left h4 {
   font-size: 14px;
   font-weight: 500;
   color: #222222;
@@ -7035,7 +7039,7 @@ canvas#highlights {
 }
 
 /* line 137, G:/admin_project/2 admin/finance/scss/_faq.scss */
-.messages_box_area .messages_list ul li a .message_pre_left p {
+.messages_box_area .messages_list ul li span .message_pre_left p {
   font-size: 13px;
   font-weight: 300;
   color: #676B84;
@@ -7043,7 +7047,7 @@ canvas#highlights {
 }
 
 /* line 145, G:/admin_project/2 admin/finance/scss/_faq.scss */
-.messages_box_area .messages_list ul li a .messge_time span {
+.messages_box_area .messages_list ul li span .messge_time span {
   font-size: 12px;
   font-weight: 300;
   color: #cec1c2;
@@ -7051,13 +7055,18 @@ canvas#highlights {
 }
 
 /* line 153, G:/admin_project/2 admin/finance/scss/_faq.scss */
-.messages_box_area .messages_list ul li:hover a {
+.messages_box_area .messages_list ul li:hover span {
   padding-left: 10px;
   padding-right: 10px;
   background: rgba(255, 247, 248, 0.6);
 }
 
 /* line 163, G:/admin_project/2 admin/finance/scss/_faq.scss */
+.messages_box_area .messages_chat {
+  position: relative;
+  max-height: 65vh;
+  overflow-y: scroll;
+}
 .messages_box_area .messages_chat .messge_time span {
   white-space: nowrap;
 }
@@ -7102,9 +7111,9 @@ canvas#highlights {
 
 /* line 186, G:/admin_project/2 admin/finance/scss/_faq.scss */
 .messages_box_area .messages_chat .single_message_chat .message_content_view {
-  background: #fff7f8;
-  border-radius: 10px;
-  padding: 30px;
+  background: #0077b5;
+  border-radius: 30px;
+  padding: 15px;
 }
 
 /* line 190, G:/admin_project/2 admin/finance/scss/_faq.scss */
@@ -7122,8 +7131,8 @@ canvas#highlights {
 .messages_box_area .messages_chat .single_message_chat .message_content_view p {
   font-size: 13px;
   font-weight: 300;
-  color: #676B84;
-  line-height: 26px;
+  color: #ffffff;
+  line-height: 15px;
 }
 
 /* line 204, G:/admin_project/2 admin/finance/scss/_faq.scss */
@@ -7217,12 +7226,21 @@ canvas#highlights {
   text-align: right;
 }
 
+/* .messages_box_area .messages_chat{
+  background: red;
+  overflow: hidden;
+} */
+
 /* line 267, G:/admin_project/2 admin/finance/scss/_faq.scss */
 .messages_box_area .messages_chat .message_send_field {
-  padding-top: 50px;
+  position: fixed;
+  /* width: 100%; */
+  bottom: 0;
+  padding: 50px 0;
   display: grid;
   grid-template-columns: auto 110px;
   grid-gap: 10px;
+  background: #fff;
 }
 
 @media (max-width: 575.98px) {
