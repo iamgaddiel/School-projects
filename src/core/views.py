@@ -1,5 +1,6 @@
 from typing import Any, Dict, Optional
 from django import views
+from django.http import HttpResponse
 from django.shortcuts import render
 from django.views.generic import (
     TemplateView, 
@@ -11,14 +12,18 @@ from django.views.generic import (
     ListView
 )
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+
+from core.utils import generate_license_number
 from .forms import DriverLicenseCreationForm, PlateNumberCreateForm, RegistrationForm
 from django.urls import reverse_lazy
-from .models import CustomUser, DriversLicense, PlateNumber
+from .models import CustomUser, DriversLicense, Notice, PlateNumber
 
 
 # =================== [ Core ]========================
-class Index(TemplateView):
+class Index(ListView):
     template_name = 'core/index.html'
+    context_object_name = 'notices'
+    model = Notice
 
 class Registration(CreateView):
     template_name = 'core/signup.html'
@@ -36,7 +41,7 @@ class Dashboard(LoginRequiredMixin, TemplateView):
             print(e)
         return context
 
-class SearchResult(TemplateView):
+class Search(TemplateView):
     template_name = 'core/search.html'
 
     def post(self, *args, **kwargs):
@@ -55,7 +60,8 @@ class SearchResult(TemplateView):
             context['error'] = f'Records on {search_params} not found'
         return render(self.request, 'core/search.html', context)
 
-
+class SearchResult(TemplateView):
+    template_name = 'core/search_result.html'
     
 # ------------ [ Driver's License] ---------
 class LicenseListView(LoginRequiredMixin, ListView):
@@ -68,6 +74,13 @@ class CreateLicense(CreateView):
     template_name = 'core/drivers_license_create.html'
     form_class = DriverLicenseCreationForm
     success_url = reverse_lazy('license')
+
+    def form_valid(self, form) -> HttpResponse:
+        form.instance.user = self.request.user
+        form.instance.iss = ""
+        form.instance.exp = ""
+        form.instance.license_number = generate_license_number(12)
+        return super().form_valid(form)
 
 class LicenseUpdate(UpdateView):
     pass

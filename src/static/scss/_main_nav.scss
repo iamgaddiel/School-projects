@@ -2,11 +2,13 @@
 // top nav bar
 nav.main-nav {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     height: 60px;
     position: fixed;
     width: 100%;
+    background: #fff;
+    padding: 0 50px;
     #logo {
         width: 30px;
         height: 30px;

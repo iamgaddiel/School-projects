@@ -5,9 +5,9 @@
     <h1 id="form-title">Add Drivers License</h1>
     <form method="post" enctype="multipart/form-data">
       {% csrf_token %}
-      <div class="flex-wrapper">
+      <div class="input-row">
         {% for field in form %}
-        <div class="input-wrapper flex-input">
+        <div class="input-wrapper input-col flex-input">
           <label for="{{ form.id_for_usernme }}">
             <p>{{ field.label }}</p>
           </label>

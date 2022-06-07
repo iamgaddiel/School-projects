@@ -1,37 +1,40 @@
-{% extends 'core/base.html' %} {% block title %}
+{% extends 'core/base.html' %} 
+{% load static %} {% block title %}
 <title>FRSC - Home</title>
-{% endblock title %} {% block content %} {% include 'core/includes/top_nav.html'%}
+{% endblock title %} 
+{% block content %} 
+{% include 'core/includes/top_nav.html'%}
 
-<!-- hero section -->
-<section class="hero">
-  <section class="hero-content">
-    <!-- hero text -->
-    <div class="hero-text">
-      <h2>Traffic Control System</h2>
+<section class="info">
+  <h1>Latest Notice</h1>
+
+  <section class="info-content">
+    {% for notice in notices %}
+    <div class="info-card">
+      <!-- ------------------[ LHS ]-------------- -->
+      <div class="lhs">
+        <div class="lhs-content">
+          <h2>{{ notice.title }}</h2>
+          <span class="underline"></span>
+
+          <p class="info-desc">
+            {{ notice.description }}
+          </p>
+          <span class="info-location">Location: {{ notice.location }}</span>
+          <a href="" class="info-link">Learn More</a>
+        </div>
+      </div>
+
+      <!-- ------------------[ RHS ]-------------- -->
+      <div class="rhs">
+        <div class="info-image">
+          <img src="{{ notice.image.url }}" alt="" />
+        </div>
+      </div>
     </div>
-
-    <!-- hero search  -->
-    <section class="hero-search">
-      <!-- hero search form START -->
-      <form action="{% url 'search' %}" method="post" class="hero-search-form">
-        {% csrf_token %}
-        <input
-          type="text"
-          name="search_params"
-          placeholder="Search text"
-          required
-        />
-        <select name="search_category" id="">
-          <option value="driver_license">Driver License</option>
-          <option value="plate_number">Plate number</option>
-        </select>
-        <button class="hero-search-button">
-          <i class="fa fa-search"></i>
-          search
-        </button>
-      </form>
-      <!-- hero search form END -->
-    </section>
+    {% empty %}
+      <h1>No notice found </h1>
+    {% endfor %}
   </section>
 </section>
 

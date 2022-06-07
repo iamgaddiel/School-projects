@@ -9,6 +9,7 @@ from .views import (
     LicenseListView, 
     ListPlateNumber, 
     Registration,
+    Search,
     SearchResult
 )
 
@@ -18,7 +19,8 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(template_name='core/logout.html'), name='logout'),
     path('signup/', Registration.as_view(), name='signup'),
     path('dashboard/', Dashboard.as_view(), name='dashboard'),
-    path('search/', SearchResult.as_view(), name='search'),
+    path('search-result/', SearchResult.as_view(), name='search_result'),
+    path('search/', Search.as_view(), name='search'),
 
  
     # ----------------- [ Drive's license] ----------------------

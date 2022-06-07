@@ -10,11 +10,13 @@
       <div class="flex-wrapper">
         {% for field in form %}
         <div class="input-wrapper flex-input">
-          <label for="{{ form.id_for_usernme }}">
-            <p>{{ field.label }}</p>
-          </label>
-          {{ field }}
-          <p><small class="form-error-text" style="color: red; list-style-type: none;">{{ field.errors }}</small></p>
+          <div>
+            <label for="{{ form.id_for_usernme }}">
+              <p>{{ field.label }}</p>
+            </label>
+            {{ field }}
+            <p><small class="form-error-text" style="color: red; list-style-type: none;">{{ field.errors }}</small></p>
+          </div>
         </div>
         {% endfor %}
       </div>

@@ -20,7 +20,7 @@ class RegistrationForm(UserCreationForm, forms.ModelForm):
 class DriverLicenseCreationForm(forms.ModelForm):
     class Meta:
         model = DriversLicense
-        fields = '__all__'
+        exclude = ['status', 'user', 'assigned_class', 'iss', 'exp', 'license_number']
 
 class PlateNumberCreateForm(forms.ModelForm):
     class Meta:

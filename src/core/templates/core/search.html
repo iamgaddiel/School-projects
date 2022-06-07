@@ -1,101 +1,38 @@
-{% extends 'core/base.html' %} {% block content %}
-{% include 'core/includes/top_nav.html' %}
-<!-- hero search  -->
-<section class="wrapper">
-  <section class="mt-5">
-    {% if type == 'plate_number' and data != None %}
-    <section class="search-card mt-5">
-      <div class="search-profile-image">
-        <img
-          src="{{ data.image.url }}"
-          class="relative"
-          style="top: 0; width: 100; height: auto"
-        />
-      </div>
+{% extends 'core/base.html' %} {% block title %}
+<title>FRSC - Home</title>
+{% endblock title %} {% block content %} {% include 'core/includes/top_nav.html'%}
 
-      <div class="search-detail">
-        <div class="search-detail-content">
-          <div class="detail">
-            <span class="lead">First Name</span>
-            <p>{{ data.user.first_name|title }}</p>
-          </div>
-          <div class="detail">
-            <span class="lead">Last Name</span>
-            <p>{{ data.user.last_name|title }}</p>
-          </div>
-          <div class="detail">
-            <span class="lead">Engine Number</span>
-            <p>{{ data.engine_number }}</p>
-          </div>
-          <div class="detail">
-            <span class="lead">Insurance Policy Number</span>
-            <p>{{ data.insurance_policy_number }}</p>
-          </div>
-          <div class="detail">
-            <span class="lead">Car Model</span>
-            <p>{{ data.model_of_car }}</p>
-          </div>
-          <div class="detail">
-            <span class="lead">Car Color</span>
-            <p>{{ data.color }}</p>
-          </div>
-          <div class="detail">
-            <span class="lead">Date Issued</span>
-            <p>{{ data.issues_date }}</p>
-          </div>
-          <div class="detail">
-            <span class="lead">Date Expired</span>
-            <p>{{ data.expiry_date }}</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    {% elif type == 'driver_license' and data != None %}
-    <section class="search-card mt-5">
-      <div class="search-profile-image">
-        <img
-          src="{{ data.image.url }}"
-          class="relative"
-          style="top: 0; width: 100; height: auto"
-        />
-      </div>
+<!-- hero section -->
+<section class="hero">
+  <section class="hero-content">
+    <!-- hero text -->
+    <div class="hero-text">
+      <h2>Traffic Control System</h2>
+    </div>
 
-      <div class="search-detail">
-        <div class="search-detail-content">
-          <div class="detail">
-            <span class="lead">First Name</span>
-            <p>{{ data.user.first_name|title }}</p>
-          </div>
-          <div class="detail">
-            <span class="lead">Last Name</span>
-            <p>{{ data.user.last_name|title }}</p>
-          </div>
-          <div class="detail">
-            <span class="lead">License Number</span>
-            <p>{{ data.license_number }}</p>
-          </div>
-          <div class="detail">
-            <span class="lead">Class</span>
-            <p>{{ data.assigned_class }}</p>
-          </div>
-          <div class="detail">
-            <span class="lead">DOB</span>
-            <p>{{ data.dob }}</p>
-          </div>
-          <div class="detail">
-            <span class="lead">Date Issued</span>
-            <p>{{ data.iss }}</p>
-          </div>
-          <div class="detail">
-            <span class="lead">Date Expired</span>
-            <p>{{ data.exp }}</p>
-          </div>
-        </div>
-      </div>
+    <!-- hero search  -->
+    <section class="hero-search">
+      <!-- hero search form START -->
+      <form action="{% url 'search' %}" method="post" class="hero-search-form">
+        {% csrf_token %}
+        <input
+          type="text"
+          name="search_params"
+          placeholder="Search text"
+          required
+        />
+        <select name="search_category" id="">
+          <option value="driver_license">Driver License</option>
+          <option value="plate_number">Plate number</option>
+        </select>
+        <button class="hero-search-button">
+          <i class="fa fa-search"></i>
+          search
+        </button>
+      </form>
+      <!-- hero search form END -->
     </section>
-    {% else %}
-    <h2 class="text-center py-4">{{ error }}</h2>
-    {% endif %}
   </section>
 </section>
-{% endblock %}
+
+{% endblock content %}
