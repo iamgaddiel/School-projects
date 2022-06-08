@@ -2791,12 +2791,22 @@ table.dataTable.dtr-inline.collapsed > tbody > tr.parent > th:first-child::befor
 }
 
 /* line 184, G:/admin_project/2 admin/finance/scss/_header.scss */
-.profile_info img {
-  max-width: 77px;
-  max-height: 77px;
+.profile_info .profile_image{
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
   border: 2px solid #A5ADC6;
   cursor: pointer;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile_info .profile_image img {
+  width: 100%;
+  height: auto;
+  transform: scale(1.9);
 }
 
 @media (max-width: 991px) {

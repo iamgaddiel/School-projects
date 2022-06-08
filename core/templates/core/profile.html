@@ -1,0 +1,28 @@
+{% extends 'core/base2.html' %} {% load static %} {% block dashboard_content %}
+<div class="white_box mb_30">
+  <div class="box_header">
+    <div class="main-title">
+      <h3 class="mb-0">Your Profile</h3>
+    </div>
+  </div>
+  <div class="profile_card_5">
+    <div class="cover-photo">
+      <div class="d-flex align-items-center">
+        <img src="{{ user.profile.image.url }}" class="profile" />
+        <div class="profile-name ml-3">
+          {{ user.first_name }} {{ user.last_name }}
+        </div>
+      </div>
+    </div>
+    <p class="about">{{ user.email }}<br /></p>
+    <a href="{% url 'core:profile_update' %}" class="msg-btn">Update</a>
+    <button class="follow-btn">Following</button>
+    <div>
+      <i class="fab fa-facebook-f"></i>
+      <i class="fab fa-instagram"></i>
+      <i class="fab fa-youtube"></i>
+      <i class="fab fa-twitter"></i>
+    </div>
+  </div>
+</div>
+{% endblock %}

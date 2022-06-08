@@ -30,7 +30,7 @@
     </li>
     <!-- [ Groups ] -->
     <li class="">
-      <a class="has-arrow" href="" aria-expanded="false">
+      <a class="has-arrow" href="{% url 'chat:groups' %}" aria-expanded="false">
         <img src="{% static 'img/menu-icon/2.svg' %}" alt="" />
         <span>Groups</span>
       </a>
@@ -84,12 +84,14 @@
               </li>
             </div>
             <div class="profile_info">
-              <img src="{% static 'img/client_img.png' %}" alt="#" />
+              <div class="profile_image">
+                <img src="{{ user.profile.image.url }}" alt="#" />
+              </div>
               <div class="profile_info_iner">
-                <p>Welcome Admin!</p>
-                <h5>Travor James</h5>
+                <p>Welcome {{ user.username }}</p>
+                <h5>{{ user.first_name }} {{ user.last_name }}</h5>
                 <div class="profile_info_details">
-                  <a href="">My Profile <i class="ti-user"></i></a>
+                  <a href="{% url 'core:profile' %}">My Profile <i class="ti-user"></i></a>
                   <a href="">Settings <i class="ti-settings"></i></a>
                   <a href="{% url 'core:logout' %}"
                     >Log Out <i class="ti-shift-left"></i
