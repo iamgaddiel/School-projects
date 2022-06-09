@@ -16,8 +16,7 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now=timezone.now)
 
     def __str__(self) -> str:
-        return super().__str__()
-
+        return self.post_text
 
 class Comment(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
@@ -25,7 +24,7 @@ class Comment(models.Model):
     comment = models.TextField(blank=True)
 
     def __str__(self) -> str:
-        return super().__str__()
+        return f'{self.post} | {self.user.username}'
 
 class Reaction(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)

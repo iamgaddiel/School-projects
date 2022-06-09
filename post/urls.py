@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import PersonalPosts, PostFeed, CreatePost, delete_post
+from .views import PersonalPosts, PostFeed, CreatePost, delete_post, create_comment
 
 app_name = 'post'
 
@@ -9,4 +9,5 @@ urlpatterns = [
     path('create/', CreatePost.as_view(), name='create_post'),
     path('my_post/', PersonalPosts.as_view(), name='personal_post'),
     path('delete/<uuid:id>/', delete_post, name='delete_post'),
+    path('comment/create/', create_comment, name='create_comment'),
 ]
