@@ -25,7 +25,7 @@ class Comment(models.Model):
 
     def __str__(self) -> str:
         return f'{self.post} | {self.user.username}'
-
+    
 class Reaction(models.Model):
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
     likes = models.PositiveIntegerField(default=0)

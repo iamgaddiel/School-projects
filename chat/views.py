@@ -14,7 +14,6 @@ from core.utils import generate_text
 from .models import GroupMessage, Message, Group
 
 
-
 def list_users(request):
     template_name = 'chat/messenger.html'
     context = {
@@ -22,10 +21,17 @@ def list_users(request):
     }
     return render(request, template_name, context)
 
-def get_messages(request, friend_id):
-    friend = get_object_or_404(User, id = friend_id)
 
-    query =  Message.objects.filter(Q(_from=friend) | Q(to=friend)).values().reverse()
+def get_messages(request, friend_id):
+
+    friend = get_object_or_404(User, id=friend_id)
+
+    query = Message.objects.filter(
+        Q(
+            Q(_from=request.user) & Q(to=friend)) |
+            Q(Q(_from=friend) & Q(to=request.user)
+        )
+    ).values().reverse()
 
     queryset = [subquery for subquery in query]
 
@@ -38,7 +44,7 @@ def send_message(request, message, friend_id):
 
     Message.objects.create(message=message, _from=request.user, to=friend)
 
-    return JsonResponse({'data': { 'message': message }})
+    return JsonResponse({'data': {'message': message}})
 
 
 # --------------------------------- [ Group ] -----------------------------------
@@ -48,6 +54,7 @@ class GroupView(ListView):
 
     def get_queryset(self):
         return Group.objects.filter(member=self.request.user)
+
 
 class GroupCreation(View):
     def post(self, *args, **kwargs):
@@ -68,22 +75,24 @@ class GroupCreation(View):
 
         return redirect('chat:groups')
 
+
 def get_group_messages(request, group_id):
 
     queryset = GroupMessage.objects.filter(group_id=group_id).values()
 
     messages = [query for query in queryset]
 
-    return JsonResponse({'data': messages })
+    return JsonResponse({'data': messages})
 
 
 def send_group_message(request, message, group_id):
 
     group = Group.objects.get(id=group_id)
 
-    GroupMessage.objects.create(group=group, message=message, _from=request.user)
+    GroupMessage.objects.create(
+        group=group, message=message, _from=request.user)
 
-    return JsonResponse({'data': { 'message': message }})
+    return JsonResponse({'data': {'message': message}})
 
 
 def join_group(request, group_slug):
@@ -93,5 +102,3 @@ def join_group(request, group_slug):
     group.member.add(request.user)
 
     return JsonResponse({'data': 'added successfully'})
-
-

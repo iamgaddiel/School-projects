@@ -17,7 +17,7 @@ class PostFeed(ListView):
 
     def get_context_data(self, **kwargs: Any) -> Dict[str, Any]:
         context = super().get_context_data(**kwargs)
-        context['comments'] = Comment.objects.all()
+        context['comments'] = Comment.objects.all().reverse()
         return context
 
 class CreatePost(LoginRequiredMixin, CreateView):

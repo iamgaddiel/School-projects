@@ -137,7 +137,7 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 
 # Authentication
-LOGIN_REDIRECT_URL = 'core:dashboard'
+LOGIN_REDIRECT_URL = 'post:feed'
 
 LOGIN_URL = 'core:login'
 

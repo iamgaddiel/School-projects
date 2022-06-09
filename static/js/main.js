@@ -19,18 +19,18 @@ messenger.forEach((messenger) => {
         messageBox.innerHTML = "";
 
         if (messages.length > 0) {
+          console.log(messages)
           messages.forEach((message) => {
             if (message._from_id == friendId) {
-              console.log("left");
               messageBody = `
-                <div class="single_message_chat">
+              <div class="single_message_chat">
                 <div class="message_content_view red_border">
                   <p>
                     <span>${message.message}<br /></span>
                   </p>
                 </div>
               </div>
-                `;
+            `;
             } else {
               messageBody = `
               <div class="single_message_chat sender_message">
