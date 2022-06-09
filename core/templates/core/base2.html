@@ -1,19 +1,19 @@
 {% extends 'core/base.html' %} {% load static %} {% block content %}
 <nav class="sidebar">
   <div class="logo d-flex justify-content-between">
-    <a href="index.html"><img src="{% static 'img/logo.png' %}" alt="" /></a>
+    <a href="{% url 'post:feed' %}"><img src="{% static 'img/logo.svg' %}" alt="" /></a>
     <div class="sidebar_close_icon d-lg-none">
       <i class="ti-close"></i>
     </div>
   </div>
   <ul id="sidebar_menu">
       <!-- Dashboard  -->
-    <li>
+    <!-- <li>
       <a class="has-arrow" href="{% url 'core:dashboard' %}" aria-expanded="false">
         <img src="{% static 'img/menu-icon/1.svg' %}" alt="" />
         <span>Dashboard</span>
       </a>
-    </li>
+    </li> -->
       <!-- Feed  -->
     <li>
       <a class="has-arrow" href="{% url 'post:feed' %}" aria-expanded="false">
